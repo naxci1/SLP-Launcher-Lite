@@ -130,7 +130,7 @@ Topaz bundles its own cuDNN inside `neuroserver\...\torch\lib\`. Lite shows the 
 3. Renames the current DLLs to `*.dll.bak` (first-original backup is never overwritten) and copies the new ones in, retrying through antivirus/Defender file locks;
 4. Re-checks the installed version and flips the label to green.
 
-Rules enforced for safety: Topaz must be **completely closed** before patching (locked DLLs are detected), and writing to `C:\Program Files` may require running SLP Lite **as administrator** (you'll get a clear message if so). A cached wheel `cudnn-<version>.whl` in `SLP_Lite_Data\` is reused, so you can also patch offline.
+Rules enforced for safety: Topaz must be **completely closed** before patching (locked DLLs are detected). If Topaz is installed under `C:\Program Files`, Windows shows **one UAC prompt** — accept it and the patch applies automatically (no need to relaunch as administrator). A cached wheel `cudnn-<version>.whl` in `SLP_Lite_Data\` is reused, so you can also patch offline.
 
 ## Log analyzer (external tzlog)
 
@@ -166,7 +166,8 @@ Requires no admin rights for launching/monitoring; only the optional cuDNN patch
 | *"Topaz is ALREADY running (started outside this launcher)"* | That instance has no tuned overrides. Close it and launch from SLP Lite |
 | Overrides don't seem active | Check the header: versions come from the Topaz folder you pointed to; make sure you launched via 🚀 |
 | Patch says *file locked* | Topaz is still running — close it, then Patch |
-| Patch says *ACCESS DENIED* | Right-click `SLP_Lite.exe` → **Run as administrator**, then Patch |
+| Windows asks for administrator permission on Patch | Normal when Topaz is in `C:\Program Files` — accept the single UAC prompt; if you decline it, Patch is not applied |
+| Patch says *ACCESS DENIED* after accepting UAC | Something is blocking the elevated copy — right-click `SLP_Lite.exe` → **Run as administrator**, then Patch |
 | GPU/VRAM bars show `—` | `nvidia-smi` not available (driver issue) — monitoring only, rendering unaffected |
 | Antivirus flags the EXE | PyInstaller false positive; add an exclusion |
 | History row click opens the folder but no file selected | The file was moved/deleted after the render — Lite opens its folder instead |
