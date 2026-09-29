@@ -1,6 +1,6 @@
-# SLP Launcer Lite
+# SLP Launcher Lite
 
-[![Download SLP Launcer Lite](https://img.shields.io/badge/%E2%AC%87_Download-SLP_Lite.exe-2fa06b?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/latest)
+[![Download SLP Launcher Lite](https://img.shields.io/badge/%E2%AC%87_Download-SLP_Lite.exe-2fa06b?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/latest)
 [![Release](https://img.shields.io/badge/release-v1.1.0-4488d4?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/tag/v1.1.0)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-23252b?style=for-the-badge)](#requirements)
 
@@ -8,7 +8,7 @@
 
 > ### 🌟 This is the LITE edition
 > The **main, full-featured version** of this tool is **[Topaz-SLP-Launcher by skv89](https://github.com/skv89/Topaz-SLP-Launcher)**.
-> SLP Launcer Lite is a simplified fork of that concept: an easier, cleaner UI with a 3D design, focused on *launch → monitor → done*.
+> SLP Launcher Lite is a simplified fork of that concept: an easier, cleaner UI with a 3D design, focused on *launch → monitor → done*.
 > **If you need AutoTune, A/B testing, advanced tuning and extra features — use the [main version](https://github.com/skv89/Topaz-SLP-Launcher).**
 
 ---
@@ -36,7 +36,7 @@
 
 ## What it does
 
-Topaz Video AI ships the **SLP-2.5 / SLP-2.6 (Starlight Precision)** video-restoration model. Out of the box, the model runs with conservative memory settings that are not optimal for every GPU. SLP Launcer Lite:
+Topaz Video AI ships the **SLP-2.5 / SLP-2.6 (Starlight Precision)** video-restoration model. Out of the box, the model runs with conservative memory settings that are not optimal for every GPU. SLP Launcher Lite:
 
 - **launches Topaz Video AI with tuned, process-local overrides** (temporal chunk size, VAE tiling, LAB color transfer, memory caps), so the model renders faster on 16 GB-class GPUs **without touching any Topaz installation file**;
 - **live-monitors every render** directly from Topaz's own log: current file, phase (VAE Encode → DiT Upscale → VAE Decode), chunk table, ETA, dual 3D progress rings;
@@ -69,7 +69,7 @@ All of this in a single portable `.exe` with a dark 3D-styled interface.
 
 ## Download & install
 
-[![Download SLP Launcer Lite](https://img.shields.io/badge/%E2%AC%87_Download-SLP_Lite.exe-2fa06b?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/latest)
+[![Download SLP Launcher Lite](https://img.shields.io/badge/%E2%AC%87_Download-SLP_Lite.exe-2fa06b?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/latest)
 
 1. Grab `SLP_Lite.exe` from the [**Releases**](https://github.com/naxci1/SLP-Launcher-Lite/releases) page — direct link to the latest build: **[SLP_Lite.exe (v1.1.0)](https://github.com/naxci1/SLP-Launcher-Lite/releases/download/v1.1.0/SLP_Lite.exe)**.
 2. Put it in **any folder you like** (Desktop, `D:\Tools\`, a USB stick — anywhere writable).
@@ -91,7 +91,7 @@ The first run creates a `SLP_Lite_Data\` folder **next to the EXE** with your pr
 
 ## The UI tour
 
-![SLP Launcer Lite — main window](screenshot.png)
+![SLP Launcher Lite — main window](screenshot.png)
 
 *Left:* settings (pipeline parameters, VAE tiling, Topaz path & launch). *Right of settings:* profiles, log selector and the cuDNN panel. *Right edge:* system monitor. *Below:* live render status with dual 3D progress rings and the chunk table, then the render history.
 
@@ -198,7 +198,7 @@ If you find a bug, or have an idea, feature request or any feedback, please open
 
 When reporting a problem, please include:
 
-- SLP Launcer Lite **version** (see the window title)
+- SLP Launcher Lite **version** (see the window title)
 - Your **GPU** (model + VRAM) and **Topaz Video AI version**
 - What you expected vs. what happened
 - For render issues: the `.tzlog` file (in the app: **Log → Browse** to open it, then attach it to the issue)
@@ -206,7 +206,7 @@ When reporting a problem, please include:
 ## Credits & disclaimer
 
 - **Main project:** [Topaz-SLP-Launcher (skv89)](https://github.com/skv89/Topaz-SLP-Launcher) — this Lite edition builds on the same idea and tuning knowledge. For AutoTune, A/B tests and the full feature set, use the original.
-- **SLP Launcer Lite** by **naxci1** — UI/UX, monitor, history, profiles, log analyzer, cuDNN patcher.
-- SLP Launcer Lite is an **unofficial community tool** and is not affiliated with Topaz Labs. Use at your own risk; always keep backups of important media.
+- **SLP Launcher Lite** by **naxci1** — UI/UX, monitor, history, profiles, log analyzer, cuDNN patcher.
+- SLP Launcher Lite is an **unofficial community tool** and is not affiliated with Topaz Labs. Use at your own risk; always keep backups of important media.
 
 Released under the **MIT License**.
