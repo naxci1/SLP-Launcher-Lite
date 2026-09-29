@@ -90,28 +90,9 @@ The first run creates a `SLP_Lite_Data\` folder **next to the EXE** with your pr
 
 ## The UI tour
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│ SLP Launcer Lite v.1.0 (by naxci1)      Topaz running  [GitHub]│
-│ Python 3.12 · PyTorch 2.7.0 · CUDA 12.8 · cuDNN 9.24.1.1      │
-├───────────────────────────────────────┬──────────────────────┤
-│ Settings                              │ System Monitor       │
-│  chunk  overlap  VAE cap  color       │  CPU ▓▓▓░ 9 %        │
-│  enc tile  enc ov  dec tile  dec ov   │  RAM ▓▓▓░ 36 %       │
-│  Topaz: [path………………] [🚀 Launch]     │  GPU ▓▓▓░ 100 %      │
-│                                       │  VRAM ▓▓▓░ 89 %      │
-│  (right side of Settings:)            │  GPU temp: 61 °C     │
-│   Profile: [combo] [Save] [Del]       │                      │
-│   Log: auto (latest) [Browse] [Auto]  │                      │
-│   cuDNN: 9.24.1.1 ✅ OK [9.24.1.1][Patch]                    │
-├───────────────────────────────────────┴──────────────────────┤
-│ Render Status           file ▶ phase    ╭─chunk──╮ ╭─overall─╮│
-│  frames / processed / chunk / fps ...  │  42 %  │ │  71 %   ││
-│  Completed chunks table                ╰────────╯ ╰─────────╯│
-├──────────────────────────────────────────────────────────────┤
-│ Render History — 1 row per finished file   [🗑 Clear History] │
-└──────────────────────────────────────────────────────────────┘
-```
+![SLP Launcer Lite — main window](screenshot.png)
+
+*Left:* settings (pipeline parameters, VAE tiling, Topaz path & launch). *Right of settings:* profiles, log selector and the cuDNN panel. *Right edge:* system monitor. *Below:* live render status with dual 3D progress rings and the chunk table, then the render history.
 
 - **Header** — app title, live Topaz status, and the **GitHub** button (opens this repository).
 - **Version strip** — the *installed* stack (Python / PyTorch / CUDA / cuDNN) is read from your actual Topaz folder, plus the active attention mode.
