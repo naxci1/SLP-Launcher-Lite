@@ -91,7 +91,7 @@ The first run creates a `SLP_Lite_Data\` folder **next to the EXE** with your pr
 
 ## The UI tour
 
-![SLP Launcher Lite — main window](screenshot.png)
+![SLP Launcher Lite — main window](app_screenshot.png)
 
 *Left:* settings (pipeline parameters, VAE tiling, Topaz path & launch). *Right of settings:* profiles, log selector and the cuDNN panel. *Right edge:* system monitor. *Below:* live render status with dual 3D progress rings and the chunk table, then the render history.
 
