@@ -29,7 +29,8 @@
 12. [How it works (technical)](#how-it-works-technical)
 13. [Troubleshooting](#troubleshooting)
 14. [FAQ](#faq)
-15. [Credits & disclaimer](#credits--disclaimer)
+15. [Feedback & issues](#feedback--issues)
+16. [Credits & disclaimer](#credits--disclaimer)
 
 ---
 
@@ -186,6 +187,21 @@ No — Windows only for now.
 
 **Difference from the main Topaz-SLP-Launcher?**
 Lite = simple UI, 3D design, zero-configuration defaults, live monitor, history, cuDNN patcher. The [main version](https://github.com/skv89/Topaz-SLP-Launcher) adds AutoTune, systematic A/B testing and deeper expert options — use it when you want to *tune* rather than just *run*.
+
+## Feedback & issues
+
+[![Open Issues](https://img.shields.io/badge/Issues-report_&_request-4488d4?style=flat-square)](https://github.com/naxci1/SLP-Launcher-Lite/issues)
+
+If you find a bug, or have an idea, feature request or any feedback, please open an issue — it is the fastest way to reach the developer:
+
+👉 **[github.com/naxci1/SLP-Launcher-Lite/issues](https://github.com/naxci1/SLP-Launcher-Lite/issues)**
+
+When reporting a problem, please include:
+
+- SLP Launcer Lite **version** (see the window title)
+- Your **GPU** (model + VRAM) and **Topaz Video AI version**
+- What you expected vs. what happened
+- For render issues: the `.tzlog` file (in the app: **Log → Browse** to open it, then attach it to the issue)
 
 ## Credits & disclaimer
 
