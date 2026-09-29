@@ -104,12 +104,14 @@ The first run creates a `SLP_Lite_Data\` folder **next to the EXE** with your pr
 |---|---|---|
 | `chunk` | Temporal pixel-chunk size (frames per model pass). Must satisfy 4n+1. Smaller = less VRAM, more overhead | 361 |
 | `overlap` | Frames shared between consecutive chunks for seamless stitching | 4 |
-| `VAE cap` | `vae_conv_max_mem` budget (GiB) for VAE convolutions | 0.5 |
+| `VAE cap` | `SLP25_VAE_CONV_MAX_MEM` budget (GiB) for VAE convolutions | 0.5 |
 | `color` | Color-transfer method between chunks: `wavelet`, `lab`, `wavelet_adaptive`, `hsv`, `adain`, `none` | lab |
 | `enc tile / enc ov` | VAE encoder tile size & overlap (px) for tiled encoding | 640 / 32 |
 | `dec tile / dec ov` | VAE decoder tile size & overlap (px) | 640 / 32 |
+| `enc tiled / dec tiled` | Toggle VAE encode/decode tiling on/off. Off = single pass — only for very large VRAM | on / on |
+| `offload` | `TENSOR_OFFLOAD_DEVICE`: **cpu** = park tensors in system RAM (recommended on 8–16 GB cards) · **gpu** = keep everything on the GPU. On **24 GB+ VRAM** cards you can try `gpu`; on 16 GB and below keep `cpu` — A/B testing on a 16 GB card showed `gpu` is **not faster** (up to 18% slower, higher OOM risk because the card is already near-full during renders) | cpu |
 
-Fixed internals (A/B-tested, not exposed): causal slice 4, tiled encode/decode on, DiT window group 10, **attention = stock PyTorch SDPA**, tensor offload to CPU.
+Fixed internals (A/B-tested, not exposed): causal slice 4, DiT window group 10, **attention = stock PyTorch SDPA**, full pool off.
 
 > The fps-halving (1:2) experiment was removed in v1.0 — Lite always renders at the source frame rate.
 
