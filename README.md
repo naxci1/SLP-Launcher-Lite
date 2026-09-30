@@ -9,6 +9,7 @@
 > ### 🌟 Launch → Monitor → Done
 > Simple, clean UI with a 3D design and zero-configuration defaults:
 > press **Launch**, watch the live render monitor, collect finished files from the history.
+> Looking for **AutoTune**? Use [Topaz-SLP-Launcher by skv89](https://github.com/skv89/Topaz-SLP-Launcher).
 
 ---
 
