@@ -6,10 +6,9 @@
 
 **A compact, 3D-styled companion launcher & live monitor for Topaz Video AI's SLP (Starlight Precision) model — Windows, portable, single EXE.**
 
-> ### 🌟 This is the LITE edition
-> The **main, full-featured version** of this tool is **[Topaz-SLP-Launcher by skv89](https://github.com/skv89/Topaz-SLP-Launcher)**.
-> SLP Launcher Lite is a simplified fork of that concept: an easier, cleaner UI with a 3D design, focused on *launch → monitor → done*.
-> **If you need AutoTune, A/B testing, advanced tuning and extra features — use the [main version](https://github.com/skv89/Topaz-SLP-Launcher).**
+> ### 🌟 Launch → Monitor → Done
+> Simple, clean UI with a 3D design and zero-configuration defaults:
+> press **Launch**, watch the live render monitor, collect finished files from the history.
 
 ---
 
@@ -30,7 +29,6 @@
 13. [Troubleshooting](#troubleshooting)
 14. [FAQ](#faq)
 15. [Feedback & issues](#feedback--issues)
-16. [Credits & disclaimer](#credits--disclaimer)
 
 ---
 
@@ -186,9 +184,6 @@ All in `SLP_Lite_Data\` next to the EXE: `preset.json`, `profiles.json`, `histor
 **Is there a Mac version?**
 No — Windows only for now.
 
-**Difference from the main Topaz-SLP-Launcher?**
-Lite = simple UI, 3D design, zero-configuration defaults, live monitor, history, cuDNN patcher. The [main version](https://github.com/skv89/Topaz-SLP-Launcher) adds AutoTune, systematic A/B testing and deeper expert options — use it when you want to *tune* rather than just *run*.
-
 ## Feedback & issues
 
 [![Open Issues](https://img.shields.io/badge/Issues-report_&_request-4488d4?style=flat-square)](https://github.com/naxci1/SLP-Launcher-Lite/issues)
@@ -204,10 +199,3 @@ When reporting a problem, please include:
 - What you expected vs. what happened
 - For render issues: the `.tzlog` file (in the app: **Log → Browse** to open it, then attach it to the issue)
 
-## Credits & disclaimer
-
-- **Main project:** [Topaz-SLP-Launcher (skv89)](https://github.com/skv89/Topaz-SLP-Launcher) — this Lite edition builds on the same idea and tuning knowledge. For AutoTune, A/B tests and the full feature set, use the original.
-- **SLP Launcher Lite** by **naxci1** — UI/UX, monitor, history, profiles, log analyzer, cuDNN patcher.
-- SLP Launcher Lite is an **unofficial community tool** and is not affiliated with Topaz Labs. Use at your own risk; always keep backups of important media.
-
-Released under the **MIT License**.
