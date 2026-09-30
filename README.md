@@ -132,7 +132,7 @@ Rules enforced for safety: Topaz must be **completely closed** before patching (
 
 ## Log analyzer (external tzlog)
 
-Topaz writes rotating `.tzlog` files to `%APPDATA%\Topaz Labs LLC\Topaz Video\logs\`. Normally Lite follows the newest one. Press **Browse** to open **any** tzlog (an old session, a copy from another machine) — the Render Status and History panels switch to *analysis view* (marked with a yellow "external log" banner) and show what happened in that log. Nothing is written to your history. **Auto** returns to live mode.
+Topaz writes rotating `.tzlog` files (`.log` on Topaz 1.7.1+) to `%APPDATA%\Topaz Labs LLC\Topaz Video\logs\`. Normally Lite follows the newest one. Press **Browse** to open **any** tzlog (an old session, a copy from another machine) — the Render Status and History panels switch to *analysis view* (marked with a yellow "external log" banner) and show what happened in that log. Nothing is written to your history. **Auto** returns to live mode.
 
 ## Profiles
 
