@@ -1,7 +1,7 @@
 # SLP Launcher Lite
 
 [![Download SLP Launcher Lite](https://img.shields.io/badge/%E2%AC%87_Download-SLP_Lite.exe-2fa06b?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/latest)
-[![Release](https://img.shields.io/badge/release-v1.3.3-4488d4?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/tag/v1.3.3)
+[![Release](https://img.shields.io/badge/release-v1.4.0-4488d4?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/tag/v1.4.0)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-23252b?style=for-the-badge)](#requirements)
 
 **A compact, 3D-styled companion launcher & live monitor for Topaz Video AI's SLP (Starlight Precision) model — Windows, portable, single EXE.**
@@ -70,7 +70,7 @@ All of this in a single portable `.exe` with a dark 3D-styled interface.
 
 [![Download SLP Launcher Lite](https://img.shields.io/badge/%E2%AC%87_Download-SLP_Lite.exe-2fa06b?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/latest)
 
-1. Grab `SLP_Lite.exe` from the [**Releases**](https://github.com/naxci1/SLP-Launcher-Lite/releases) page — direct link to the latest build: **[SLP_Lite.exe (v1.3.3)](https://github.com/naxci1/SLP-Launcher-Lite/releases/download/v1.3.3/SLP_Lite.exe)**.
+1. Grab `SLP_Lite.exe` from the [**Releases**](https://github.com/naxci1/SLP-Launcher-Lite/releases) page — direct link to the latest build: **[SLP_Lite.exe (v1.4.0)](https://github.com/naxci1/SLP-Launcher-Lite/releases/download/v1.4.0/SLP_Lite.exe)**.
 2. Put it in **any folder you like** (Desktop, `D:\Tools\`, a USB stick — anywhere writable).
 3. Run it. That's the whole installation.
 
@@ -201,5 +201,6 @@ When reporting a problem, please include:
 - SLP Launcher Lite **version** (see the window title)
 - Your **GPU** (model + VRAM) and **Topaz Video AI version**
 - What you expected vs. what happened
+- For render issues: press **Send logs** in any error dialog — the launcher e-mails a complete diagnostic package (active log, processes, system & GPU info, Windows event-log entries, settings) automatically.
 - For render issues: the `.tzlog` file (in the app: **Log → Browse** to open it, then attach it to the issue)
 
