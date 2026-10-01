@@ -1,7 +1,7 @@
 # SLP Launcher Lite
 
 [![Download SLP Launcher Lite](https://img.shields.io/badge/%E2%AC%87_Download-SLP_Lite.exe-2fa06b?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/latest)
-[![Release](https://img.shields.io/badge/release-v1.3.2-4488d4?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/tag/v1.3.2)
+[![Release](https://img.shields.io/badge/release-v1.3.3-4488d4?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/tag/v1.3.3)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-23252b?style=for-the-badge)](#requirements)
 
 **A compact, 3D-styled companion launcher & live monitor for Topaz Video AI's SLP (Starlight Precision) model — Windows, portable, single EXE.**
@@ -70,7 +70,7 @@ All of this in a single portable `.exe` with a dark 3D-styled interface.
 
 [![Download SLP Launcher Lite](https://img.shields.io/badge/%E2%AC%87_Download-SLP_Lite.exe-2fa06b?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/latest)
 
-1. Grab `SLP_Lite.exe` from the [**Releases**](https://github.com/naxci1/SLP-Launcher-Lite/releases) page — direct link to the latest build: **[SLP_Lite.exe (v1.3.2)](https://github.com/naxci1/SLP-Launcher-Lite/releases/download/v1.3.2/SLP_Lite.exe)**.
+1. Grab `SLP_Lite.exe` from the [**Releases**](https://github.com/naxci1/SLP-Launcher-Lite/releases) page — direct link to the latest build: **[SLP_Lite.exe (v1.3.3)](https://github.com/naxci1/SLP-Launcher-Lite/releases/download/v1.3.3/SLP_Lite.exe)**.
 2. Put it in **any folder you like** (Desktop, `D:\Tools\`, a USB stick — anywhere writable).
 3. Run it. That's the whole installation.
 
