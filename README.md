@@ -114,8 +114,6 @@ Your settings, profiles and history live in a `SLP_Lite_Data\` folder next to th
 
 Fixed internals (A/B-tested, not exposed): causal slice 4, DiT window group 10, **attention = stock PyTorch SDPA**, full pool off.
 
-> The fps-halving (1:2) experiment was removed in v1.0 — Lite always renders at the source frame rate.
-
 ## cuDNN check & patcher
 
 Topaz bundles its own cuDNN inside `neuroserver\...\torch\lib\`. Lite shows the installed version in the Settings panel:
