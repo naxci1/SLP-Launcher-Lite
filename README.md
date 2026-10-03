@@ -4,12 +4,11 @@
 [![Release](https://img.shields.io/badge/release-v1.5.2-4488d4?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/tag/v1.5.2)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-23252b?style=for-the-badge)](#requirements)
 
-**A compact, 3D-styled companion launcher & live monitor for Topaz Video AI's SLP (Starlight Precision) model — Windows, portable, single EXE.**
+**A compact, 3D-styled companion launcher & live monitor for Topaz Video AI's SLP (Starlight Precision) model — Windows, installed app with built-in auto-update.**
 
 > ### 🌟 Launch → Monitor → Done
 > Simple, clean UI with a 3D design and zero-configuration defaults:
 > press **Launch**, watch the live render monitor, collect finished files from the history.
-> Looking for **AutoTune**? Use [Topaz-SLP-Launcher by skv89](https://github.com/skv89/Topaz-SLP-Launcher).
 
 ---
 
@@ -42,7 +41,7 @@ Topaz Video AI ships the **SLP-2.5 / SLP-2.6 (Starlight Precision)** video-resto
 - **records a permanent history** of finished files (frames, chunks, total time, average fps) — click any row to open its folder;
 - **checks and patches the cuDNN library** inside Topaz's bundled PyTorch, from a SHA-256-verified official source.
 
-All of this in a single portable `.exe` with a dark 3D-styled interface.
+All of this in a compact app with a dark 3D-styled interface — a standard Windows installer that keeps itself up to date.
 
 ## Features
 
@@ -57,30 +56,32 @@ All of this in a single portable `.exe` with a dark 3D-styled interface.
 | Profiles | Save / load / delete named setting profiles |
 | cuDNN | Version check (green/red), two patch targets, verified download, safe swap with backup |
 | System monitor | CPU / RAM / GPU / VRAM bars + GPU temperature |
-| Portable | Everything is stored next to the EXE in `SLP_Lite_Data\` — no AppData, no registry, no installer |
+| Auto-update | Built-in version check (automatic on start + **Check** button); when a new release is out the button turns red **Update!** — one click downloads and installs it silently |
+| Send Logs | One-click diagnostics: zips the active log, process list, system & GPU info, Windows event-log entries and settings, and e-mails the package to the developer |
+| Install & data | Standard installer (Program Files, desktop & Start Menu shortcuts, clean uninstall); your data lives in `SLP_Lite_Data\` next to the app |
 
 ## Requirements
 
 - **Windows 10 / 11 x64**
 - **[Topaz Video AI](https://www.topazlabs.com/topaz-video-ai)** installed, with the **SLP (Starlight Precision) model** downloaded
 - An **NVIDIA GPU** (the overrides and the cuDNN patcher target CUDA/NVIDIA setups; ~8–16 GB VRAM class is where tuning matters most)
-- No Python needed — everything is bundled in the EXE
+- No Python needed — everything is bundled in the app
 
 ## Download & install
 
 [![Download SLP Launcher Lite](https://img.shields.io/badge/%E2%AC%87_Download-SLP_Lite.exe-2fa06b?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/latest)
 
-1. Grab `SLP_Lite.exe` from the [**Releases**](https://github.com/naxci1/SLP-Launcher-Lite/releases) page — direct link to the latest build: **[SLP_Lite_Setup_v1.5.2.exe (installer)](https://github.com/naxci1/SLP-Launcher-Lite/releases/download/v1.5.2/SLP_Lite_Setup_v1.5.2.exe)**.
-2. Put it in **any folder you like** (Desktop, `D:\Tools\`, a USB stick — anywhere writable).
-3. Run it. That's the whole installation.
+1. Download the latest installer from the [**Releases**](https://github.com/naxci1/SLP-Launcher-Lite/releases) page — direct link: **[SLP_Lite_Setup_v1.5.2.exe](https://github.com/naxci1/SLP-Launcher-Lite/releases/download/v1.5.2/SLP_Lite_Setup_v1.5.2.exe)**.
+2. Run it — a standard wizard installs the app to Program Files and creates desktop & Start Menu shortcuts.
+3. Done. Future updates arrive **in-app**: the header button turns red **Update!** when a new release is published — one click installs it silently, no manual re-download.
 
-The first run creates a `SLP_Lite_Data\` folder **next to the EXE** with your preset, profiles and history. To "uninstall", delete the folder.
+Your settings, profiles and history live in a `SLP_Lite_Data\` folder next to the app; if the install folder is read-only, the app automatically uses `%LOCALAPPDATA%\SLP Launcher Lite` instead. Uninstall any time from Windows **Apps & features**.
 
 > ⚠️ Some antivirus products flag PyInstaller-packed EXEs generically. The binary contains only Python, PySide6 (Qt) and psutil — if your AV complains, add an exclusion for the EXE.
 
 ## Quick start
 
-1. Start `SLP_Lite.exe` (opens maximized).
+1. Start SLP Launcher Lite (desktop shortcut; opens maximized).
 2. **Topaz path** is auto-detected from the registry; if the field is empty, browse to `Topaz Video.exe`.
 3. Press **🚀 Launch Topaz**. The status line turns green: *"Topaz running — hooks active"*.
 4. Inside Topaz, add videos to the queue and export with the **SLP / Starlight Precision** model as usual.
@@ -94,7 +95,7 @@ The first run creates a `SLP_Lite_Data\` folder **next to the EXE** with your pr
 
 *Left:* settings (pipeline parameters, VAE tiling, Topaz path & launch). *Right of settings:* profiles, log selector and the cuDNN panel. *Right edge:* system monitor. *Below:* live render status with dual 3D progress rings and the chunk table, then the render history.
 
-- **Header** — app title, live Topaz status, and the **GitHub** button (opens this repository).
+- **Header** — app title, live Topaz status, the version-check / **Update!** button, and **GitHub** (opens this repository).
 - **Version strip** — the *installed* stack (Python / PyTorch / CUDA / cuDNN) is read from your actual Topaz folder, plus the active attention mode.
 - Clicking the **active file name** (Render Status) opens its folder in Explorer; the 📁 icon in history rows does the same.
 
@@ -183,7 +184,7 @@ No. All tuning is per-process (environment + runtime patch). The cuDNN patch swa
 It applies memory-oriented chunk/tiling tuning that on 16 GB GPUs typically keeps the model in its fastest path (≈1.0–1.4 fps at 1280×960 vs lower when the stock config spills over). Results depend on GPU, resolution and source.
 
 **Where is my data?**
-All in `SLP_Lite_Data\` next to the EXE: `preset.json`, `profiles.json`, `history.json`, cached wheels. Delete = clean uninstall.
+In `SLP_Lite_Data\` next to the app (or `%LOCALAPPDATA%\SLP Launcher Lite` when the install folder is read-only): `preset.json`, `profiles.json`, `history.json`, cached wheels. Uninstalling removes the app; delete that folder too for a fully clean removal.
 
 **Is there a Mac version?**
 No — Windows only for now.
