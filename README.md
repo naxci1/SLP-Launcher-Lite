@@ -200,6 +200,8 @@ power loss, closed Topaz), the tool detects the half-finished file
 automatically and finishes the job — without re-rendering what is already
 done.
 
+![Recovery Topaz SLP — banner](recovery_banner.png)
+
 ![Recovery Topaz SLP — main window](recovery_topaz_slp.png)
 
 ### Where it lives
