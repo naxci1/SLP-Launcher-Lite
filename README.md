@@ -25,11 +25,12 @@
 8. [cuDNN check & patcher](#cudnn-check--patcher)
 9. [Log analyzer (external tzlog)](#log-analyzer-external-tzlog)
 10. [Profiles](#profiles)
-11. [Render history](#render-history)
-12. [How it works (technical)](#how-it-works-technical)
-13. [Troubleshooting](#troubleshooting)
-14. [FAQ](#faq)
-15. [Feedback & issues](#feedback--issues)
+11. [Autobackup](#autobackup)
+12. [Render history](#render-history)
+13. [How it works (technical)](#how-it-works-technical)
+14. [Troubleshooting](#troubleshooting)
+15. [FAQ](#faq)
+16. [Feedback & issues](#feedback--issues)
 
 ---
 
@@ -144,6 +145,50 @@ Topaz writes rotating `.tzlog` files (`.log` on Topaz 1.7.1+) to `%APPDATA%\Topa
 - selecting a profile from the combo **applies** it instantly;
 - **Del** — deletes the selected profile;
 - the last-used state is always auto-persisted in `preset.json`, so a restart continues where you left off.
+
+## Autobackup
+
+**Autobackup is a major new feature that protects your render against crashes,
+freezes and power loss.**
+
+Topaz Video AI writes its output to a temporary file and only finalizes it
+when the whole render finishes. If the program closes unexpectedly, hangs, or
+throws an error mid-render, that half-written file can be lost — together with
+hours of GPU work.
+
+**Autobackup fixes this.** When enabled, SLP Launcher Lite automatically copies
+the growing output file to a backup folder of your choice **after every finished
+chunk**. Each new copy replaces the old one, so the backup folder always holds
+the most recent chunk-boundary state of your render.
+
+### How to use
+
+1. In the main window, find the **Autobackup** row under the cuDNN panel.
+2. Press **Browse…** and choose a backup folder — preferably on **another
+   physical drive** (e.g. `E:\TopazBackup`), so a system disk failure cannot
+   take both copies.
+3. The backup activates immediately. The button turns **red** while ON.
+4. Press the **Folder** button at any time to open the backup folder.
+5. Toggle **Autobackup: Off** to pause backups without losing the folder
+   setting (it is remembered between launches).
+
+### Why it matters
+
+- **Program crash / freeze** — the backup holds the render up to the last
+  finished chunk.
+- **Error mid-render** — Topaz may discard its temp file; your backup does not
+  disappear.
+- **Future recovery** — the saved file is the base for the upcoming
+  **automatic recovery** feature (currently in development and testing): SLP
+  Launcher Lite will detect the interrupted render, continue it from the exact
+  frame where it stopped, and merge the parts into one finished video.
+
+> **No need to close Topaz!** You never have to close Topaz Video AI to use
+> this application. Even while an export is running, you can open SLP
+> Launcher Lite at any time — it instantly finds the current render, reads
+> the data and updates itself, giving you correct live statistics. And with
+> **Autobackup**, you can activate it whenever you want to automatically back
+> up the ongoing export process after every finished chunk.
 
 ## Render history
 
