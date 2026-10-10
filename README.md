@@ -1,7 +1,7 @@
 # SLP Launcher Lite
 
 [![Download SLP Launcher Lite](https://img.shields.io/badge/%E2%AC%87_Download-SLP_Lite.exe-2fa06b?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/latest)
-[![Release](https://img.shields.io/badge/release-v1.6.8-4488d4?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/tag/v1.6.8)
+[![Release](https://img.shields.io/badge/release-v1.7.0-4488d4?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/tag/v1.7.0)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-23252b?style=for-the-badge)](#requirements)
 
 **A compact, 3D-styled companion launcher & live monitor for Topaz Video AI's SLP (Starlight Precision) model — Windows, installed app with built-in auto-update.**
@@ -26,11 +26,12 @@
 9. [Log analyzer (external tzlog)](#log-analyzer-external-tzlog)
 10. [Profiles](#profiles)
 11. [Autobackup](#autobackup)
-12. [Render history](#render-history)
-13. [How it works (technical)](#how-it-works-technical)
-14. [Troubleshooting](#troubleshooting)
-15. [FAQ](#faq)
-16. [Feedback & issues](#feedback--issues)
+12. [Recovery Topaz SLP](#recovery-topaz-slp)
+13. [Render history](#render-history)
+14. [How it works (technical)](#how-it-works-technical)
+15. [Troubleshooting](#troubleshooting)
+16. [FAQ](#faq)
+17. [Feedback & issues](#feedback--issues)
 
 ---
 
@@ -73,7 +74,7 @@ All of this in a compact app with a dark 3D-styled interface — a standard Wind
 
 [![Download SLP Launcher Lite](https://img.shields.io/badge/%E2%AC%87_Download-SLP_Lite.exe-2fa06b?style=for-the-badge)](https://github.com/naxci1/SLP-Launcher-Lite/releases/latest)
 
-1. Download the latest installer from the [**Releases**](https://github.com/naxci1/SLP-Launcher-Lite/releases) page — direct link: **[SLP_Lite_Setup_v1.6.8.exe](https://github.com/naxci1/SLP-Launcher-Lite/releases/download/v1.6.8/SLP_Lite_Setup_v1.6.8.exe)**.
+1. Download the latest installer from the [**Releases**](https://github.com/naxci1/SLP-Launcher-Lite/releases) page — direct link: **[SLP_Lite_Setup_v1.7.0.exe](https://github.com/naxci1/SLP-Launcher-Lite/releases/download/v1.7.0/SLP_Lite_Setup_v1.7.0.exe)**.
 2. Run it — a standard wizard installs the app to Program Files and creates desktop & Start Menu shortcuts.
 3. Done. Future updates arrive **in-app**: the header button turns red **Update!** when a new release is published — one click installs it silently, no manual re-download.
 
@@ -178,10 +179,10 @@ the most recent chunk-boundary state of your render.
   finished chunk.
 - **Error mid-render** — Topaz may discard its temp file; your backup does not
   disappear.
-- **Future recovery** — the saved file is the base for the upcoming
-  **automatic recovery** feature (currently in development and testing): SLP
-  Launcher Lite will detect the interrupted render, continue it from the exact
-  frame where it stopped, and merge the parts into one finished video.
+- **Future recovery** — the saved file is the base for the new
+  **Recovery Topaz SLP** tool (see the next section): it detects the
+  interrupted render, continues it from the exact frame where it stopped and
+  merges everything into one finished video.
 
 > **No need to close Topaz!** You never have to close Topaz Video AI to use
 > this application. Even while an export is running, you can open SLP
@@ -189,6 +190,93 @@ the most recent chunk-boundary state of your render.
 > the data and updates itself, giving you correct live statistics. And with
 > **Autobackup**, you can activate it whenever you want to automatically back
 > up the ongoing export process after every finished chunk.
+
+## Recovery Topaz SLP
+
+**Recovery Topaz SLP is a brand-new standalone program (v1.0) that ships
+embedded inside the SLP Launcher Lite setup since v1.7.0.** It rescues
+interrupted Topaz SLP renders: when a render dies halfway (crash, freeze,
+power loss, closed Topaz), the tool detects the half-finished file
+automatically and finishes the job — without re-rendering what is already
+done.
+
+![Recovery Topaz SLP — main window](recovery_topaz_slp.png)
+
+### Where it lives
+
+- Installed to **`<install folder>\recovery\RecoveryTopazSLP.exe`** by the
+  SLP Lite setup.
+- Open it from the green **Recovery** button at the bottom of SLP Lite
+  (footer bar), or run the EXE directly — it is a fully independent
+  application with its own window, icon and settings.
+
+### What it does
+
+1. **Automatic scan** — on every start it reads the Topaz Video logs and
+   finds exports that **started but never finished** (started events minus
+   finished events), newest first.
+2. **Job details** — for the selected job it shows the source video
+   (resolution, fps, frames, codec), the partial output (frames already
+   written, % complete), the exact crop filter Topaz used, the start time
+   and how many frames remain.
+3. **Resume render** — it copies the partial file and the source into a
+   `recovery_topaz_slp\` folder next to them (**your original files are
+   never touched**), cuts the remaining frames losslessly and renders them
+   with the **exact parameters Topaz used for that job** (same model
+   filters, output size, upscale factor, preproc crop and encoder flags are
+   replicated 1:1 from the log).
+4. **Merge** — when the render finishes it verifies the new segment matches
+   the partial file's resolution, concatenates both parts and adds the
+   original audio — producing **`<source name>_slp.mp4`**, exactly the name
+   Topaz itself would create.
+
+### The chunks table
+
+While rendering you get the same live statistics as SLP Lite — one row per
+finished chunk: **# / Enc s / DiT s / Dec s / Total s / FPS** (timings parsed
+from the neuroserver phases), plus a `queue:` summary line and an overall
+progress bar with ETA.
+
+### Buttons
+
+- **⟳ Rescan** — search the Topaz logs again for interrupted jobs.
+- **Copy file** — just copy the partial output to a folder of your choice,
+  no recovery.
+- **RECOVER** — start the resume + merge.
+- **Stop** — abort the current recovery (frames already rendered stay).
+- **GitHub** — opens this repository.
+- On success the finish dialog offers **Folder**, which opens the output
+  folder with the finished file selected.
+
+### How to use
+
+1. **Close Topaz Video AI completely.**
+2. Open **SLP Launcher Lite** → press the green **Recovery** button (or run
+   `RecoveryTopazSLP.exe` from the `recovery` folder).
+3. The interrupted job appears in the list with its completion % — check the
+   **Job details** panel.
+4. Press **RECOVER**. The chunks table fills up as each chunk finishes;
+   the progress bar and ETA show the overall state.
+5. When it finishes, press **Folder** in the dialog to get your
+   `<source name>_slp.mp4`.
+
+> ### ⚠️ CRITICAL WARNING — READ CAREFULLY
+> **DO NOT OPEN THE TOPAZ APPLICATION UNDER ANY CIRCUMSTANCES WHILE A
+> RECOVERY IS RUNNING!**
+> If Topaz opens, it **deletes the half-finished video file** — and it
+> **cannot be brought back**. Topaz does **not** need to be open for the
+> recovery — **do not open it**, or the chance is lost forever.
+
+### Notes
+
+- The render runs **detached**: you can even close the Recovery window and
+  the render continues (the app warns you before closing; only the final
+  merge needs the app alive).
+- If the app was closed while a detached render was still going, the next
+  launch detects the orphan neuroserver process and warns you about it.
+- Resolution guard: if the freshly rendered segment does not match the
+  partial file's resolution, the tool refuses to merge instead of producing
+  a broken video.
 
 ## Render history
 
