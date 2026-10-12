@@ -94,7 +94,7 @@ Your settings, profiles and history live in a `SLP_Lite_Data\` folder next to th
 
 ## The UI tour
 
-![SLP Launcher Lite v1.6.4 — main window](app_screenshot_v164.png)
+![SLP Launcher Lite v1.7.0 — main window](app_screenshot_v170.png)
 
 *Left:* settings (pipeline parameters, VAE tiling, Topaz path & launch). *Right of settings:* profiles, log selector and the cuDNN panel. *Right edge:* system monitor. *Below:* live render status with dual 3D progress rings and the chunk table, then the render history.
 
