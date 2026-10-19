@@ -94,7 +94,7 @@ Your settings, profiles and history live in a `SLP_Lite_Data\` folder next to th
 
 ## The UI tour
 
-![SLP Launcher Lite v1.7.5 — main window](app_screenshot_v175.png)
+![SLP Launcher Lite v1.7.6 — main window](app_screenshot_v176.png)
 
 *Left:* settings (pipeline parameters, VAE tiling, Topaz path & launch). *Right of settings:* profiles, log selector and the cuDNN panel. *Right edge:* system monitor. *Below:* live render status with dual 3D progress rings and the chunk table, then the render history.
 
@@ -190,6 +190,23 @@ the most recent chunk-boundary state of your render.
 > the data and updates itself, giving you correct live statistics. And with
 > **Autobackup**, you can activate it whenever you want to automatically back
 > up the ongoing export process after every finished chunk.
+
+## Image Restore — photo upscale & restore
+
+![SLP Image Restore — split comparison](app_screenshot_image_restore.png)
+
+A new standalone tool bundled with SLP Lite: **SLP Image Restore**.
+The same SLP-26 engine that restores your videos now restores **photos**.
+
+- Open it from the **Image Restore** button in the footer (next to Recovery)
+- Drag & drop a photo or click **Load image** — PNG, JPG, WebP, BMP, TIFF, GIF, AVIF, HEIC, EXR, DDS, TGA and more
+- Upscale **1x / 2x / 3x / 4x** — very large outputs are automatically split into overlapping tiles and blended back seamlessly
+- **Split View** with a draggable green divider (ORIGINAL | SLP RESTORED) — stays stable at any zoom level
+- Zoom with the mouse wheel, pan by dragging
+- Output formats: PNG, JPG, WebP, BMP, TIFF, **DPX**, AVIF, EXR, PAM, PPM
+- **Bit depth**: 8-bit or 16-bit (TIFF/PNG/DPX in 16-bit precision)
+- Each output format shows a short description (lossless/lossy, best use)
+- Works without opening the Topaz GUI — the license is read from the installed Topaz data
 
 ## Recovery Topaz SLP
 
