@@ -9,7 +9,6 @@
 > ### 🌟 Launch → Monitor → Done
 > Simple, clean UI with a 3D design and zero-configuration defaults:
 > press **Launch**, watch the live render monitor, collect finished files from the history.
-> Looking for **AutoTune / benchmarking**? Use [Topaz-SLP-Launcher by skv89](https://github.com/skv89/Topaz-SLP-Launcher).
 
 ---
 
@@ -355,4 +354,3 @@ When reporting a problem, please include:
 - What you expected vs. what happened
 - For render issues: press **Send logs** in any error dialog — the launcher e-mails a complete diagnostic package (active log, processes, system & GPU info, Windows event-log entries, settings) automatically.
 - For render issues: the `.tzlog` file (in the app: **Log → Browse** to open it, then attach it to the issue)
-
